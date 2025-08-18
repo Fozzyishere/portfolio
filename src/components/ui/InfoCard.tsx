@@ -43,21 +43,21 @@ const InfoCard: React.FC<InfoCardProps> = ({
         <div className="p-4 md:ml-4 flex flex-col w-full md:w-2/3">
           {githubUrl ? (
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <h2 className="text-lg sm:text-xl font-semibold text-gruvbox-purple-dark mb-2 hover:text-gruvbox-purple-light transition-colors duration-200 cursor-pointer">
+              <h2 className="text-lg sm:text-xl font-semibold text-purple-dark mb-2 hover:text-purple-light transition-colors duration-200 cursor-pointer">
                 {alt}
               </h2>
             </a>
           ) : (
-            <h2 className="text-lg sm:text-xl font-semibold text-gruvbox-purple-dark mb-2">
+            <h2 className="text-lg sm:text-xl font-semibold text-purple-dark mb-2">
               {alt}
             </h2>
           )}
-          <p className="text-gruvbox-fg1 text-xs sm:text-sm">{descText}</p>
+          <p className="text-fg1 text-xs sm:text-sm">{descText}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {techUsedText.map((tech) => (
               <span
                 key={tech}
-                className="px-2 py-1 bg-gruvbox-bg2 rounded-md text-xs"
+                className="px-2 py-1 bg-bg2 rounded-md text-xs"
               >
                 {tech}
               </span>
