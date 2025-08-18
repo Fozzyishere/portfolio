@@ -5,9 +5,9 @@ import type { VariantProps } from "class-variance-authority";
 const button = cva("px-5 py-2 rounded-sm transition-all", {
   variants: {
     variant: {
-      primary: "bg-gruvbox-blue-dark text-gruvbox-fg0 hover:bg-gruvbox-blue-light",
-      secondary: "bg-gruvbox-gray-dark text-gruvbox-fg0 hover:bg-gruvbox-gray-light",
-      danger: "bg-gruvbox-red-dark text-gruvbox-fg0 hover:bg-gruvbox-red-light",
+      primary: "bg-blue-dark text-fg0 hover:bg-blue-light",
+      secondary: "bg-gray-dark text-fg0 hover:bg-gray-light",
+      danger: "bg-red-dark text-fg0 hover:bg-red-light",
     },
   },
   defaultVariants: {

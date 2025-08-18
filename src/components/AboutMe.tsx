@@ -3,51 +3,88 @@ import Typewriter from "./ui/Typewriter";
 
 export const AboutMe = () => {
   return (
-    <div id="about-me" className="about-me text-gruvbox-fg1 flex flex-col items-center justify-center py-10 md:py-20 ">
-      <h1 className="text-2xl text-gruvbox-blue-light mb-4 italic">
+    <div
+      id="about-me"
+      className="about-me text-fg1 flex flex-col items-center justify-center py-10 md:py-20 "
+    >
+      <h1 className="text-xl sm:text-2xl md:text-3xl text-blue-light mb-4 italic">
         <Typewriter string="About me" typeSpeed={60} />
       </h1>
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2 px-5">
         <p>
           My name is{" "}
-          <span className="text-gruvbox-green-light">Quoc Huy Pham</span>. I
-          also used to go by Daniel back in high school but rarely uses it
-          nowadays.
+          <span className="text-green-light">Quoc Huy Pham</span>. I
+          also went by Daniel in high school but rarely use it nowadays.
         </p>
         <p className="mt-10">
           I am currently a{" "}
-          <span className="text-gruvbox-green-light">final year student</span> @{" "}
-          <span className="text-gruvbox-green-light">Macquarie University</span>{" "}
-          doing Software Engineering.
+          <span className="text-green-light">final year student</span> at{" "}
+          <span className="text-green-light">Macquarie University</span>{" "}
+          studying Software Engineering. I have a genuine passion for{" "}
+          <span className="text-green-light">programming</span> and{" "}
+          <span className="text-green-light">technology</span>, and I
+          thrive on learning new concepts and tackling challenging problems. I
+          am actively seeking an internship opportunity to apply my skills in a
+          real-world environment.
         </p>
         <p className="mt-10">
-          Hobbies isn&apos;t something I&apos;m rich at but I do enjoy playing{" "}
-          <span className="text-gruvbox-green-light">video games</span>,
-          especially those with a good story. The only sport that I enjoy is{" "}
-          <span className="ttext-gruvbox-green-light">badminton</span>, but
-          since moving to Sydney, I haven&apos;t had the chance to play it yet.
+          Outside of academics, I enjoy playing{" "}
+          <span className="text-green-light">video games</span>,
+          particularly those with compelling narratives. I also have a passion
+          for <span className="text-green-light">badminton</span>, though
+          since relocating to Sydney, I haven&apos;t had the opportunity to play
+          regularly.
         </p>
         <p className="mt-10">
-          I am also a huge fan of{" "}
-          <span className="text-gruvbox-green-light">programming</span> and{" "}
-          <span className="text-gruvbox-green-light">technology</span>. I love
-          to learn new things and I am always up for a challenge. I am currently
-          looking for an internship to gain some real-world experience.
-        </p>
-        <p className="mt-10">
-          My <span className="text-gruvbox-green-light">skillset</span> so far
+          My technical <span className="text-green-light">skillset</span>{" "}
           includes:
         </p>
-        <ul className="list-disc list-inside mt-2">
-          <li>JavaScript / TypeScript</li>
-          <li>React / Next.js</li>
-          <li>Java</li>
-          <li>Python</li>
-          <li>git</li>
-          <li>C / Assembly (in game hacking)</li>
-        </ul>
-        No Backend experience yet, but I am looking forward to learning it in
-        the near future :D
+        <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <p className="text-green-light mb-1 font-semibold">
+              Comfortable:
+            </p>
+            <ul className="list-disc list-inside ml-4">
+              <li>CSS3</li>
+              <li>HTML5</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Git</li>
+              <li>TypeScript</li>
+              <li>Next.js</li>
+              <li>Tailwind CSS</li>
+              <li>Java</li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-green-light mb-1 font-semibold">
+              Beginner:
+            </p>
+            <ul className="list-disc list-inside ml-4">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>MySQL</li>
+              <li>Redis</li>
+              <li>Docker</li>
+              <li>Postman</li>
+              <li>Figma</li>
+              <li>React Native</li>
+              <li>Linux</li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-green-light mb-1 font-semibold">
+              Exploring:
+            </p>
+            <ul className="list-disc list-inside ml-4">
+              <li>Pandas</li>
+              <li>PyTorch</li>
+              <li>Scikit-learn</li>
+              <li>Arduino</li>
+              <li>Photoshop</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
