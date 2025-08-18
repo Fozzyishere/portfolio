@@ -13,6 +13,15 @@ export const Contact = () => {
       <div>
         <ul className="list-disc list-inside mt-2">
           <li>
+            LinkedIn:{" "}
+            <a
+              href="https://www.linkedin.com/in/quoc-huy-pham-912b26272/"
+              className="text-gruvbox-gray-light underline"
+            >
+              Quoc Huy Pham
+            </a>
+          </li>
+          <li>
             Email:{" "}
             <a
               href="mailto:danielpham13092002@gmail.com"

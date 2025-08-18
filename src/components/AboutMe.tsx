@@ -14,43 +14,77 @@ export const AboutMe = () => {
         <p>
           My name is{" "}
           <span className="text-gruvbox-green-light">Quoc Huy Pham</span>. I
-          also used to go by Daniel back in high school but rarely uses it
-          nowadays.
+          also went by Daniel in high school but rarely use it nowadays.
         </p>
         <p className="mt-10">
           I am currently a{" "}
-          <span className="text-gruvbox-green-light">final year student</span> @{" "}
+          <span className="text-gruvbox-green-light">final year student</span> at{" "}
           <span className="text-gruvbox-green-light">Macquarie University</span>{" "}
-          doing Software Engineering.
-        </p>
-        <p className="mt-10">
-          Hobbies isn&apos;t something I&apos;m rich at but I do enjoy playing{" "}
-          <span className="text-gruvbox-green-light">video games</span>,
-          especially those with a good story. The only sport that I enjoy is{" "}
-          <span className="ttext-gruvbox-green-light">badminton</span>, but
-          since moving to Sydney, I haven&apos;t had the chance to play it yet.
-        </p>
-        <p className="mt-10">
-          I am also a huge fan of{" "}
+          studying Software Engineering. I have a genuine passion for{" "}
           <span className="text-gruvbox-green-light">programming</span> and{" "}
-          <span className="text-gruvbox-green-light">technology</span>. I love
-          to learn new things and I am always up for a challenge. I am currently
-          looking for an internship to gain some real-world experience.
+          <span className="text-gruvbox-green-light">technology</span>, and I
+          thrive on learning new concepts and tackling challenging problems. I
+          am actively seeking an internship opportunity to apply my skills in a
+          real-world environment.
         </p>
         <p className="mt-10">
-          My <span className="text-gruvbox-green-light">skillset</span> so far
+          Outside of academics, I enjoy playing{" "}
+          <span className="text-gruvbox-green-light">video games</span>,
+          particularly those with compelling narratives. I also have a passion
+          for <span className="text-gruvbox-green-light">badminton</span>, though
+          since relocating to Sydney, I haven&apos;t had the opportunity to play
+          regularly.
+        </p>
+        <p className="mt-10">
+          My technical <span className="text-gruvbox-green-light">skillset</span>{" "}
           includes:
         </p>
-        <ul className="list-disc list-inside mt-2">
-          <li>JavaScript / TypeScript</li>
-          <li>React / Next.js</li>
-          <li>Java</li>
-          <li>Python</li>
-          <li>git</li>
-          <li>C / Assembly (in game hacking)</li>
-        </ul>
-        No Backend experience yet, but I am looking forward to learning it in
-        the near future :D
+        <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <p className="text-gruvbox-green-light mb-1 font-semibold">
+              Comfortable:
+            </p>
+            <ul className="list-disc list-inside ml-4">
+              <li>CSS3</li>
+              <li>HTML5</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Git</li>
+              <li>TypeScript</li>
+              <li>Next.js</li>
+              <li>Tailwind CSS</li>
+              <li>Java</li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-gruvbox-green-light mb-1 font-semibold">
+              Beginner:
+            </p>
+            <ul className="list-disc list-inside ml-4">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>MySQL</li>
+              <li>Redis</li>
+              <li>Docker</li>
+              <li>Postman</li>
+              <li>Figma</li>
+              <li>React Native</li>
+              <li>Linux</li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-gruvbox-green-light mb-1 font-semibold">
+              Exploring:
+            </p>
+            <ul className="list-disc list-inside ml-4">
+              <li>Pandas</li>
+              <li>PyTorch</li>
+              <li>Scikit-learn</li>
+              <li>Arduino</li>
+              <li>Photoshop</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
