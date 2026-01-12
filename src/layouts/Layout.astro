@@ -1,0 +1,80 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Quoc Huy Pham - Software Engineer Portfolio"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Geist+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Quoc's Portfolio</title>
+
+    <script is:inline>
+      (function () {
+        const themes = [
+          "gruvbox",
+          "tokyo",
+          "dracula",
+          "nord",
+          "onedark",
+          "ayu",
+          "catppuccin",
+          "solarized",
+          "rosepine",
+          "palenight",
+        ];
+        const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+        const root = document.documentElement;
+        const properties = [
+          "bg0",
+          "bg1",
+          "bg2",
+          "bg3",
+          "bg4",
+          "fg0",
+          "fg1",
+          "fg2",
+          "fg3",
+          "fg4",
+          "red-dark",
+          "red-light",
+          "green-dark",
+          "green-light",
+          "yellow-dark",
+          "yellow-light",
+          "blue-dark",
+          "blue-light",
+          "purple-dark",
+          "purple-light",
+          "aqua-dark",
+          "aqua-light",
+          "gray-dark",
+          "gray-light",
+          "orange-dark",
+          "orange-light",
+        ];
+
+        properties.forEach(function (prop) {
+          root.style.setProperty(
+            "--color-" + prop,
+            "var(--color-" + randomTheme + "-" + prop + ")"
+          );
+        });
+      })();
+    </script>
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>

@@ -4,7 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   color-scheme: dark;
-  
+
   /* Gruvbox Colors */
   --color-gruvbox-bg0: #282828;
   --color-gruvbox-bg1: #3c3836;
@@ -317,9 +317,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  
+  --font-sans: 'Roboto', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+
   --color-bg0: var(--color-bg0);
   --color-bg1: var(--color-bg1);
   --color-bg2: var(--color-bg2);
@@ -358,4 +358,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  font-family: 'Roboto', sans-serif;
 }
