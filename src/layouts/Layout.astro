@@ -14,6 +14,16 @@ const faviconUrl = new URL('/favicon.svg', import.meta.env.SITE + import.meta.en
       content="Quoc Huy Pham - Software Engineer Portfolio"
     />
     <link rel="icon" type="image/svg+xml" href={faviconUrl} />
+    <style is:inline>
+      html {
+        visibility: visible;
+        opacity: 1;
+      }
+      body {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -75,8 +85,15 @@ const faviconUrl = new URL('/favicon.svg', import.meta.env.SITE + import.meta.en
         });
       })();
     </script>
+    <script is:inline>
+      // Show body once DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.style.visibility = 'visible';
+        document.body.style.opacity = '1';
+      });
+    </script>
   </head>
-  <body class="antialiased">
+  <body class="antialiased" style="transition: opacity 0.1s ease-in;">
     <slot />
   </body>
 </html>
