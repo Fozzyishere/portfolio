@@ -4,9 +4,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://fozzyishere.github.i.github.io',
+  site: 'https://fozzyishere.github.io',
   base: '/portfolio',
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+  },
+  build: {
+    assets: '_astro'
   }
 });
