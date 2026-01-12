@@ -1,5 +1,3 @@
-'use client'
-
 import { ReactTyped } from "react-typed";
 import React from "react";
 

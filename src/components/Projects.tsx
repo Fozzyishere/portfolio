@@ -1,4 +1,3 @@
-import React from "react";
 import Typewriter from "./ui/Typewriter";
 import InfoCard from "./ui/InfoCard";
 import PortfolioImg from "../img/portfolio.png";
@@ -42,7 +41,7 @@ export const Projects = () => {
         />
         <InfoCard
           src={ImageConverter}
-          alt="Image Converter"
+          alt="Image Format Converter"
           descText="Since all free image converter are filled with ads, I decided to build my own. It utilises FFmpeg to efficiently convert images to different formats."
           techUsedText={["React Native", "Tailwind", "FFmpeg"]}
           githubUrl="https://github.com/Fozzyishere/image-converter"

@@ -1,9 +1,8 @@
 import Card from "./Card";
 import React from "react";
-import Image, { StaticImageData } from "next/image";
 
 interface InfoCardProps {
-  src: StaticImageData;
+  src: ImageMetadata;
   alt: string;
   descText: string;
   techUsedText: string[];
@@ -23,20 +22,22 @@ const InfoCard: React.FC<InfoCardProps> = ({
         <div className="relative overflow-hidden content-center rounded-sm w-full md:w-2/3">
           {githubUrl ? (
             <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="cursor-pointer block">
-              <Image
-                src={src}
+              <img
+                src={src.src}
                 alt={alt}
                 width={500}
                 height={500}
+                loading="lazy"
                 className="hover:scale-95 hover:shadow-2xl transition-all duration-300"
               />
             </a>
           ) : (
-            <Image
-              src={src}
+            <img
+              src={src.src}
               alt={alt}
               width={500}
               height={500}
+              loading="lazy"
             />
           )}
         </div>

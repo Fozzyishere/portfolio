@@ -1,4 +1,3 @@
-import React from "react";
 import Typewriter from "./ui/Typewriter";
 import { FaChevronRight } from "react-icons/fa6";
 
