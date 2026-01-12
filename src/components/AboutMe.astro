@@ -1,0 +1,78 @@
+---
+import Typewriter from "./ui/Typewriter.astro";
+---
+
+<div
+  id="about-me"
+  class="about-me text-fg1 flex flex-col items-center justify-center py-10 md:py-20"
+>
+  <h1 class="text-xl sm:text-2xl md:text-3xl text-blue-light mb-4 italic">
+    <Typewriter text="About me" typeSpeed={60} />
+  </h1>
+  <div class="w-full md:w-1/2 px-5">
+    <p>
+      My name is <span class="text-green-light">Quoc Huy Pham</span>. I also
+      went by Daniel in high school but rarely use it nowadays.
+    </p>
+    <p class="mt-10">
+      I am currently a <span class="text-green-light">final year student</span> at
+      <span class="text-green-light">Macquarie University</span> studying Software
+      Engineering. I have a genuine passion for
+      <span class="text-green-light">programming</span> and
+      <span class="text-green-light">technology</span>, and I thrive on learning
+      new concepts and tackling challenging problems. I am actively seeking an
+      internship opportunity to apply my skills in a real-world environment.
+    </p>
+    <p class="mt-10">
+      Outside of academics, I enjoy playing
+      <span class="text-green-light">video games</span>, particularly those with
+      compelling narratives. I also have a passion for <span
+        class="text-green-light">badminton</span
+      >, though since relocating to Sydney, I haven't had the opportunity to
+      play regularly.
+    </p>
+    <p class="mt-10">
+      My technical <span class="text-green-light">skillset</span> includes:
+    </p>
+    <div class="mt-2 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <p class="text-green-light mb-1 font-semibold">Comfortable:</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>CSS3</li>
+          <li>HTML5</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Git</li>
+          <li>TypeScript</li>
+          <li>Next.js</li>
+          <li>Tailwind CSS</li>
+          <li>Java</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-green-light mb-1 font-semibold">Beginner:</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>Node.js</li>
+          <li>Express</li>
+          <li>MySQL</li>
+          <li>Redis</li>
+          <li>Docker</li>
+          <li>Postman</li>
+          <li>Figma</li>
+          <li>React Native</li>
+          <li>Linux</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-green-light mb-1 font-semibold">Exploring:</p>
+        <ul class="list-disc list-inside ml-4">
+          <li>Pandas</li>
+          <li>PyTorch</li>
+          <li>Scikit-learn</li>
+          <li>Arduino</li>
+          <li>Photoshop</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

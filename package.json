@@ -10,20 +10,12 @@
   },
   "dependencies": {
     "astro": "^5.16.8",
-    "@astrojs/react": "^4.2.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0",
-    "react-typed": "^2.0.12",
-    "zustand": "^5.0.7",
     "class-variance-authority": "^0.7.1",
     "sharp": "^0.34.3"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "typescript": "^5"
   }
 }
