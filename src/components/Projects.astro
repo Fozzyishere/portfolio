@@ -37,8 +37,8 @@ import OneVOne from "../img/1v1.png";
     <InfoCard
       src={PortfolioImg}
       alt="Portfolio"
-      descText="My personal portfolio website built with Next.js and Tailwind CSS."
-      techUsedText={["Next.js", "Tailwind"]}
+      descText="My personal portfolio website built with Astro and Tailwind CSS."
+      techUsedText={["Astro", "Tailwind"]}
       githubUrl="https://github.com/Fozzyishere/portfolio"
     />
     <InfoCard
@@ -62,7 +62,7 @@ import OneVOne from "../img/1v1.png";
     Smaller projects can be found on my
     <a
       class="text-red-dark hover:text-red-light"
-      href="./resume.pdf"
+      href={`${import.meta.env.BASE_URL}/resume.pdf`}
       target="_blank"
       rel="noopener noreferrer"
     >
