@@ -2,26 +2,37 @@
 import Typewriter from "./ui/Typewriter.astro";
 ---
 
-<div class="py-10 md:py-20">
-  <div class="container mx-auto text-left">
-    <h1
-      class="flex flex-row text-5xl md:text-7xl font-bold mb-4 text-aqua-dark"
-    >
-      <svg
-        class="text-gray-dark w-12 h-12 md:w-16 md:h-16 scale-75"
-        fill="currentColor"
-        viewBox="0 0 320 512"
-        aria-hidden="true"
-      >
-        <!-- Font Awesome chevron-right icon -->
-        <path
-          d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-        ></path>
-      </svg>
-      <Typewriter text="Quoc Huy Pham" typeSpeed={60} />
-    </h1>
-    <p class="p-5 text-l md:text-2xl text-fg1 mb-4 mt-4 leading-6">
-      Software Engineer (I think?) who likes to build things that he finds interesting.
-    </p>
-  </div>
+<div>
+  <h1>
+    <Typewriter text="Quoc Huy Pham" typeSpeed={60} />
+  </h1>
+  <p>
+    Software Engineer (I think?) who likes to build things that he finds
+    interesting.
+  </p>
 </div>
+
+<style>
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--color-aqua-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: var(--color-fg1);
+    line-height: 1.625;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+    }
+  }
+</style>

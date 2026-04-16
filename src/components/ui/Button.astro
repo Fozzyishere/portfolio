@@ -1,26 +1,46 @@
 ---
-import { cva } from "class-variance-authority";
-import type { VariantProps } from "class-variance-authority";
 import type { HTMLAttributes } from "astro/types";
 
-const button = cva("px-5 py-2 rounded-sm transition-all", {
-  variants: {
-    variant: {
-      primary: "bg-blue-dark text-fg0 hover:bg-blue-light",
-      secondary: "bg-gray-dark text-fg0 hover:bg-gray-light",
-      danger: "bg-red-dark text-fg0 hover:bg-red-light",
-    },
-  },
-  defaultVariants: {
-    variant: "primary",
-  },
-});
+interface Props extends HTMLAttributes<"button"> {
+  variant?: "primary" | "secondary" | "danger";
+}
 
-interface Props extends HTMLAttributes<"button">, VariantProps<typeof button> {}
-
-const { variant, class: className, ...props } = Astro.props;
+const { variant = "primary", class: className, ...props } = Astro.props;
 ---
 
-<button class={button({ variant, className })} {...props}>
+<button class:list={["btn", `btn-${variant}`, className]} {...props}>
   <slot />
 </button>
+
+<style>
+  .btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: var(--color-blue-dark);
+    color: var(--color-fg0);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-blue-light);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-gray-dark);
+    color: var(--color-fg0);
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-gray-light);
+  }
+
+  .btn-danger {
+    background-color: var(--color-red-dark);
+    color: var(--color-fg0);
+  }
+  .btn-danger:hover {
+    background-color: var(--color-red-light);
+  }
+</style>

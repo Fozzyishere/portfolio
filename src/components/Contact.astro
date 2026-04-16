@@ -1,31 +1,15 @@
----
-import Typewriter from "./ui/Typewriter.astro";
----
-
-<div
-  id="contact"
-  class="text-fg1 flex flex-col items-center justify-center py-10 md:py-20"
->
-  <h1 class="text-xl sm:text-2xl md:text-3xl text-blue-light mb-4 italic">
-    <Typewriter text="Contact info" typeSpeed={60} />
-  </h1>
+<div id="contact" class="contact">
   <div>
-    <ul class="list-disc list-inside mt-2">
+    <ul>
       <li>
         LinkedIn:
-        <a
-          href="https://www.linkedin.com/in/quoc-huy-pham-912b26272/"
-          class="text-blue-light underline hover:text-blue-dark transition-colors duration-200"
-        >
+        <a href="https://www.linkedin.com/in/quoc-huy-pham-912b26272/">
           Quoc Huy Pham
         </a>
       </li>
       <li>
         Email:
-        <a
-          href="mailto:danielpham13092002@gmail.com"
-          class="text-blue-light underline hover:text-blue-dark transition-colors duration-200"
-        >
+        <a href="mailto:danielpham13092002@gmail.com">
           danielpham13092002@gmail.com
         </a>
       </li>
@@ -33,7 +17,6 @@ import Typewriter from "./ui/Typewriter.astro";
         Github:
         <a
           href="https://github.com/Fozzyishere"
-          class="text-blue-light underline hover:text-blue-dark transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -43,7 +26,6 @@ import Typewriter from "./ui/Typewriter.astro";
       <li>
         Resume:
         <a
-          class="text-blue-light underline hover:text-blue-dark transition-colors duration-200"
           href={`${import.meta.env.BASE_URL}/resume.pdf`}
           target="_blank"
           rel="noopener noreferrer"
@@ -54,3 +36,30 @@ import Typewriter from "./ui/Typewriter.astro";
     </ul>
   </div>
 </div>
+
+<style>
+  .contact {
+    color: var(--color-fg1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  ul {
+    list-style: disc inside;
+    margin-top: 0.5rem;
+  }
+
+  a {
+    color: var(--color-blue-light);
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+  }
+
+  a:hover {
+    color: var(--color-blue-dark);
+  }
+</style>

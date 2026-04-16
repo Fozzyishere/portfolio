@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -314,49 +312,84 @@
   --color-orange-light: var(--color-gruvbox-orange-light);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: 'Roboto', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
-
-  --color-bg0: var(--color-bg0);
-  --color-bg1: var(--color-bg1);
-  --color-bg2: var(--color-bg2);
-  --color-bg3: var(--color-bg3);
-  --color-bg4: var(--color-bg4);
-  --color-fg0: var(--color-fg0);
-  --color-fg1: var(--color-fg1);
-  --color-fg2: var(--color-fg2);
-  --color-fg3: var(--color-fg3);
-  --color-fg4: var(--color-fg4);
-  --color-red-dark: var(--color-red-dark);
-  --color-red-light: var(--color-red-light);
-  --color-green-dark: var(--color-green-dark);
-  --color-green-light: var(--color-green-light);
-  --color-yellow-dark: var(--color-yellow-dark);
-  --color-yellow-light: var(--color-yellow-light);
-  --color-blue-dark: var(--color-blue-dark);
-  --color-blue-light: var(--color-blue-light);
-  --color-purple-dark: var(--color-purple-dark);
-  --color-purple-light: var(--color-purple-light);
-  --color-aqua-dark: var(--color-aqua-dark);
-  --color-aqua-light: var(--color-aqua-light);
-  --color-gray-dark: var(--color-gray-dark);
-  --color-gray-light: var(--color-gray-light);
-  --color-orange-dark: var(--color-orange-dark);
-  --color-orange-light: var(--color-orange-light);
+/* ── CSS Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  line-height: 1.5;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-bg0);
+  color: var(--color-fg1);
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* ── JS-toggled utility classes (used by navigation.ts) ── */
+.hidden {
+  display: none;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.-translate-y-full {
+  transform: translateY(-100%);
+}
+
+.translate-y-0 {
+  transform: translateY(0);
+}
+
+.-translate-y-8 {
+  transform: translateY(-2rem);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

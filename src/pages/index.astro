@@ -9,14 +9,251 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-  <main
-    class="bg-bg0 flex flex-col px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12 pt-24"
-  >
-    <Navbar />
-    <Hero />
-    <AboutMe />
-    <Projects />
-    <Contact />
-    <Footer />
-  </main>
+  <Navbar />
+
+  <!-- Overview State -->
+  <div id="overview">
+    <div class="overview-inner">
+      <Hero />
+      <div class="panels-row">
+        <button data-section="about-me" class="panel panel-about-me">
+          <span class="panel-label">About Me</span>
+          <svg class="panel-arrow" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        <button data-section="projects" class="panel panel-projects">
+          <span class="panel-label">Projects</span>
+          <svg class="panel-arrow" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        <button data-section="contact" class="panel panel-contact">
+          <span class="panel-label">Contact</span>
+          <svg class="panel-arrow" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail State -->
+  <div id="detail" class="opacity-0 pointer-events-none -translate-y-8">
+    <div class="detail-inner">
+      <button id="back-btn">
+        <span id="detail-title"></span>
+        <svg class="back-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <div id="section-content">
+        <div id="section-about-me" class="hidden">
+          <AboutMe />
+        </div>
+        <div id="section-projects" class="hidden">
+          <Projects />
+        </div>
+        <div id="section-contact" class="hidden">
+          <Contact />
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  </div>
 </Layout>
+
+<script>
+  import "../scripts/navigation";
+</script>
+
+<style>
+  #overview {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg0);
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .overview-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 0 1rem;
+    max-width: 48rem;
+  }
+
+  .panels-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .panel::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .panel:hover::after,
+  .panel.active::after {
+    transform: scaleX(1);
+  }
+
+  .panel-label {
+    font-size: 1.125rem;
+    font-weight: 700;
+    user-select: none;
+  }
+
+  .panel-arrow {
+    flex-shrink: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .panel:hover .panel-arrow,
+  .panel.active .panel-arrow {
+    transform: rotate(90deg);
+  }
+
+  .panel-about-me {
+    color: var(--color-blue-light);
+  }
+
+  .panel-projects {
+    color: var(--color-purple-light);
+  }
+
+  .panel-contact {
+    color: var(--color-green-light);
+  }
+
+  #detail {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background-color: var(--color-bg0);
+    overflow-y: auto;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .detail-inner {
+    padding: 5rem 1rem 1.5rem;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-fg3);
+    padding: 2rem 0;
+    transition: color 0.2s ease-in-out;
+    align-self: center;
+  }
+
+  #back-btn:hover {
+    color: var(--color-fg1);
+  }
+
+  .back-arrow {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #back-btn:hover .back-arrow {
+    transform: rotate(-90deg);
+  }
+
+  #detail-title {
+    font-size: 1.25rem;
+    color: var(--color-blue-light);
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  #section-content {
+    flex: 1;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  @media (min-width: 640px) {
+    .panels-row {
+      flex-direction: row;
+      gap: 1.5rem;
+      width: auto;
+    }
+
+    .detail-inner {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .overview-inner {
+      gap: 3.5rem;
+      padding: 0 1.5rem;
+    }
+
+    .panels-row {
+      gap: 2.5rem;
+    }
+
+    .panel {
+      padding: 1.5rem 2.5rem;
+    }
+
+    .panel-label {
+      font-size: 1.5rem;
+    }
+
+    .detail-inner {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 2.5rem;
+    }
+
+    #detail-title {
+      font-size: 1.875rem;
+    }
+
+    #section-content {
+      padding: 2.5rem 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .detail-inner {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      padding-bottom: 3rem;
+    }
+  }
+</style>

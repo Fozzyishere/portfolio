@@ -10,12 +10,9 @@
   },
   "dependencies": {
     "astro": "^5.16.8",
-    "class-variance-authority": "^0.7.1",
     "sharp": "^0.34.3"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
-    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }
