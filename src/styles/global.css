@@ -361,35 +361,150 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
 }
 
-/* ── JS-toggled utility classes (used by navigation.ts) ── */
-.hidden {
-  display: none;
+/* ── Route transitions ── */
+@keyframes page-shell-move-up-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20vh);
+  }
 }
 
-.opacity-0 {
-  opacity: 0;
+@keyframes page-shell-move-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(20vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.pointer-events-none {
-  pointer-events: none;
+@keyframes page-shell-move-down-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20vh);
+  }
 }
 
-.-translate-y-full {
-  transform: translateY(-100%);
+@keyframes page-shell-move-down-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.translate-y-0 {
-  transform: translateY(0);
+@keyframes navbar-slide-down-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
-.-translate-y-8 {
-  transform: translateY(-2rem);
+@keyframes navbar-slide-up-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes section-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes section-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+html[data-route-transition="home-to-section"]::view-transition-old(page-shell) {
+  animation: page-shell-move-up-out 150ms ease-in-out both;
+  z-index: 1;
+}
+
+html[data-route-transition="home-to-section"]::view-transition-new(page-shell) {
+  animation: page-shell-move-up-in 150ms ease-in-out 50ms both;
+  z-index: 2;
+}
+
+html[data-route-transition="section-to-home"]::view-transition-old(page-shell) {
+  animation: page-shell-move-down-out 150ms ease-in-out both;
+  z-index: 2;
+}
+
+html[data-route-transition="section-to-home"]::view-transition-new(page-shell) {
+  animation: page-shell-move-down-in 150ms ease-in-out 50ms both;
+  z-index: 1;
+}
+
+html[data-route-transition="section-to-section"]::view-transition-old(page-shell),
+html[data-route-transition="section-to-section"]::view-transition-new(page-shell) {
+  animation: none;
+}
+
+html[data-route-transition="home-to-section"]::view-transition-old(navbar) {
+  animation: none;
+}
+
+html[data-route-transition="home-to-section"]::view-transition-new(navbar) {
+  animation: navbar-slide-down-in 300ms ease-in-out both;
+}
+
+html[data-route-transition="section-to-home"]::view-transition-old(navbar) {
+  animation: navbar-slide-up-out 300ms ease-in-out both;
+}
+
+html[data-route-transition="section-to-home"]::view-transition-new(navbar),
+html[data-route-transition="section-to-section"]::view-transition-old(navbar),
+html[data-route-transition="section-to-section"]::view-transition-new(navbar) {
+  animation: none;
+}
+
+html[data-route-transition="section-to-section"]::view-transition-old(section-heading),
+html[data-route-transition="section-to-section"]::view-transition-old(section-content) {
+  animation: section-fade-out 180ms ease-in-out both;
+}
+
+html[data-route-transition="section-to-section"]::view-transition-new(section-heading),
+html[data-route-transition="section-to-section"]::view-transition-new(section-content) {
+  animation: section-fade-in 180ms ease-in-out both;
 }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-delay: 0ms !important;
     animation-duration: 0.01ms !important;
   }
 }
