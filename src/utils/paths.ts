@@ -18,9 +18,11 @@ export function stripBasePath(pathname: string, basePath: string): string {
 
 export function withBasePath(basePath: string, pathname: string): string {
   const normalizedBasePath = normalizePath(basePath);
-  const normalizedPath = pathname.replace(/^\/+/, "");
+  const normalizedPath = pathname.replace(/^\/+|\/+$/g, "");
 
-  if (!normalizedPath) return basePath;
+  if (!normalizedPath) {
+    return normalizedBasePath === "/" ? "/" : `${normalizedBasePath}/`;
+  }
   if (normalizedBasePath === "/") return `/${normalizedPath}/`;
 
   return `${normalizedBasePath}/${normalizedPath}/`;
