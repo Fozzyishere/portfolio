@@ -1,4 +1,8 @@
 import { sections } from "../data/sections";
+import {
+  normalizePath,
+  stripBasePath as stripConfiguredBasePath,
+} from "../utils/paths";
 
 type RouteKind = "home" | "section" | "other";
 type RouteTransition =
@@ -8,7 +12,6 @@ type RouteTransition =
   | "default";
 
 type PreparationEvent = Event & {
-  direction: string;
   from: URL;
   to: URL;
 };
@@ -23,26 +26,12 @@ sections.forEach((section) => {
   sectionSlugLookup[section.slug] = true;
 });
 
-function normalizePath(pathname: string): string {
-  const normalized = pathname.replace(/\/+$/, "");
-  return normalized || "/";
-}
-
 function getBasePath(): string {
   return normalizePath(document.documentElement.dataset.basePath ?? "/");
 }
 
 function stripBasePath(pathname: string): string {
-  const path = normalizePath(pathname);
-  const basePath = getBasePath();
-
-  if (basePath === "/") return path;
-  if (path === basePath) return "/";
-  if (path.slice(0, basePath.length + 1) === `${basePath}/`) {
-    return path.slice(basePath.length) || "/";
-  }
-
-  return path;
+  return stripConfiguredBasePath(pathname, getBasePath());
 }
 
 function getRouteKind(url: URL): RouteKind {
@@ -73,13 +62,12 @@ document.addEventListener("astro:before-preparation", (rawEvent) => {
   const event = rawEvent as PreparationEvent;
   const direction = getRouteTransition(event.from, event.to);
 
-  event.direction = direction;
   setRouteTransition(direction);
 });
 
 document.addEventListener("astro:before-swap", (rawEvent) => {
   const event = rawEvent as SwapEvent;
-  const direction = event.direction as RouteTransition;
+  const direction = getRouteTransition(event.from, event.to);
 
   event.newDocument.documentElement.dataset.routeTransition = direction;
   event.newDocument.documentElement.dataset.basePath =

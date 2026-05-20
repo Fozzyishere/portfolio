@@ -3,6 +3,7 @@ import {
   sections,
   type SectionSlug,
 } from "../../data/sections";
+import { withBasePath } from "../../utils/paths";
 
 interface Props {
   currentSlug?: SectionSlug;
@@ -10,11 +11,16 @@ interface Props {
 }
 
 const { currentSlug, visible = false } = Astro.props;
-const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 const portfolioHomeHref = import.meta.env.BASE_URL;
 ---
 
-<nav id="main-nav" class:list={[{ "is-visible": visible }]} transition:name="navbar">
+<nav
+  id="main-nav"
+  class:list={[{ "is-visible": visible }]}
+  aria-hidden={visible ? "false" : "true"}
+  inert={visible ? undefined : true}
+  transition:name="navbar"
+>
   <div class="nav-inner">
     <a
       id="nav-back-btn"
@@ -30,7 +36,7 @@ const portfolioHomeHref = import.meta.env.BASE_URL;
         sections.map((item) => (
           <li>
             <a
-              href={`${basePath}/${item.slug}/`}
+              href={withBasePath(import.meta.env.BASE_URL, item.slug)}
               aria-current={item.slug === currentSlug ? "page" : undefined}
             >
               {item.label}
