@@ -1,0 +1,14 @@
+---
+import AboutMeSection from "../components/AboutMe.astro";
+import SectionLayout from "../layouts/SectionLayout.astro";
+import { getSection } from "../data/sections";
+
+const section = getSection("about-me");
+---
+
+<SectionLayout
+  section={section}
+  description="About Quoc Huy Pham - Software Engineer Portfolio"
+>
+  <AboutMeSection />
+</SectionLayout>
