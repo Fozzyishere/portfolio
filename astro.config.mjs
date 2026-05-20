@@ -1,12 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+const base = '/portfolio';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://fozzyishere.github.io',
-  base: '/portfolio',
+  base,
   redirects: {
-    '/contact': '/portfolio/contacts'
+    '/contact': `${base}/contacts`
   },
   build: {
     assets: '_astro'

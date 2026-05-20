@@ -20,7 +20,7 @@ type SwapEvent = PreparationEvent & {
   newDocument: Document;
 };
 
-const sectionSlugLookup: Record<string, true> = {};
+const sectionSlugLookup = Object.create(null) as Record<string, true>;
 
 sections.forEach((section) => {
   sectionSlugLookup[section.slug] = true;
