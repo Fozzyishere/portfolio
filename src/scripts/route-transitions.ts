@@ -1,4 +1,5 @@
 import { sections } from "../data/sections";
+import { syncColorTheme } from "./color-theme";
 import {
   normalizePath,
   stripBasePath as stripConfiguredBasePath,
@@ -72,8 +73,11 @@ document.addEventListener("astro:before-swap", (rawEvent) => {
   event.newDocument.documentElement.dataset.routeTransition = direction;
   event.newDocument.documentElement.dataset.basePath =
     document.documentElement.dataset.basePath ?? "/";
+
+  syncColorTheme(event.newDocument.documentElement);
 });
 
 document.addEventListener("astro:page-load", () => {
   delete document.documentElement.dataset.routeTransition;
+  syncColorTheme();
 });

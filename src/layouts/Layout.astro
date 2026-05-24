@@ -1,6 +1,11 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
+import {
+  colorProperties,
+  colorThemes,
+  COLOR_THEME_STORAGE_KEY,
+} from "../scripts/color-theme";
 
 interface Props {
   title?: string;
@@ -34,55 +39,27 @@ const basePath = import.meta.env.BASE_URL;
     <title>{title}</title>
     <ClientRouter />
 
-    <script is:inline>
+    <script
+      is:inline
+      define:vars={{ colorThemes, colorProperties, storageKey: COLOR_THEME_STORAGE_KEY }}
+    >
       (function () {
-        const themes = [
-          "gruvbox",
-          "tokyo",
-          "dracula",
-          "nord",
-          "onedark",
-          "ayu",
-          "catppuccin",
-          "solarized",
-          "rosepine",
-          "palenight",
-        ];
-        const randomTheme = themes[Math.floor(Math.random() * themes.length)];
-        const root = document.documentElement;
-        const properties = [
-          "bg0",
-          "bg1",
-          "bg2",
-          "bg3",
-          "bg4",
-          "fg0",
-          "fg1",
-          "fg2",
-          "fg3",
-          "fg4",
-          "red-dark",
-          "red-light",
-          "green-dark",
-          "green-light",
-          "yellow-dark",
-          "yellow-light",
-          "blue-dark",
-          "blue-light",
-          "purple-dark",
-          "purple-light",
-          "aqua-dark",
-          "aqua-light",
-          "gray-dark",
-          "gray-light",
-          "orange-dark",
-          "orange-light",
-        ];
+        var stored = sessionStorage.getItem(storageKey);
+        var theme =
+          stored && colorThemes.indexOf(stored) !== -1
+            ? stored
+            : colorThemes[Math.floor(Math.random() * colorThemes.length)];
 
-        properties.forEach(function (prop) {
+        if (!stored || colorThemes.indexOf(stored) === -1) {
+          sessionStorage.setItem(storageKey, theme);
+        }
+
+        var root = document.documentElement;
+
+        colorProperties.forEach(function (prop) {
           root.style.setProperty(
             "--color-" + prop,
-            "var(--color-" + randomTheme + "-" + prop + ")"
+            "var(--color-" + theme + "-" + prop + ")"
           );
         });
       })();
