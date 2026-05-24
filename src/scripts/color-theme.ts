@@ -15,6 +15,8 @@ export const colorThemes = [
 
 export type ColorTheme = (typeof colorThemes)[number];
 
+export const DEFAULT_COLOR_THEME: ColorTheme = colorThemes[0];
+
 export const colorProperties = [
   "bg0",
   "bg1",
@@ -44,11 +46,25 @@ export const colorProperties = [
   "orange-light",
 ] as const;
 
-export function isColorTheme(value: string): value is ColorTheme {
-  return (colorThemes as readonly string[]).includes(value);
+function isBrowser(): boolean {
+  return globalThis.window !== undefined;
 }
 
-export function applyColorTheme(theme: string, root: HTMLElement): void {
+export function isColorTheme(value: unknown): value is ColorTheme {
+  if (typeof value !== "string") {
+    return false;
+  }
+
+  for (const theme of colorThemes) {
+    if (theme === value) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+export function applyColorTheme(theme: ColorTheme, root: HTMLElement): void {
   colorProperties.forEach((prop) => {
     root.style.setProperty(
       `--color-${prop}`,
@@ -58,6 +74,10 @@ export function applyColorTheme(theme: string, root: HTMLElement): void {
 }
 
 export function getOrCreateColorTheme(): ColorTheme {
+  if (!isBrowser()) {
+    return DEFAULT_COLOR_THEME;
+  }
+
   const stored = sessionStorage.getItem(COLOR_THEME_STORAGE_KEY);
 
   if (stored && isColorTheme(stored)) {
@@ -69,8 +89,12 @@ export function getOrCreateColorTheme(): ColorTheme {
   return theme;
 }
 
-export function syncColorTheme(root: HTMLElement = document.documentElement): ColorTheme {
+export function syncColorTheme(root?: HTMLElement): ColorTheme {
+  if (!isBrowser()) {
+    return DEFAULT_COLOR_THEME;
+  }
+
   const theme = getOrCreateColorTheme();
-  applyColorTheme(theme, root);
+  applyColorTheme(theme, root ?? document.documentElement);
   return theme;
 }
