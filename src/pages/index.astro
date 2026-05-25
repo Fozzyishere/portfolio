@@ -18,6 +18,7 @@ import { withBasePath } from "../utils/paths";
             <a
               href={withBasePath(import.meta.env.BASE_URL, section.slug)}
               class:list={["panel", section.panelClass]}
+              data-astro-prefetch="load"
             >
               <span class="panel-label">{section.label}</span>
               <svg

@@ -25,6 +25,7 @@ const portfolioHomeHref = import.meta.env.BASE_URL;
         class="back-heading"
         href={portfolioHomeHref}
         transition:name="section-heading"
+        data-astro-prefetch="hover"
       >
         <h1 style={`--heading-color: ${section.color};`}>
           {section.label}
