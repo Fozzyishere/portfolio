@@ -12,5 +12,9 @@ export default defineConfig({
   },
   build: {
     assets: '_astro'
-  }
+  },
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'hover',
+  },
 });
