@@ -25,41 +25,45 @@
     </p>
     <div class="skills-grid">
       <div>
-        <p class="skill-heading">Comfortable:</p>
+        <p class="skill-heading">Programming language:</p>
         <ul>
-          <li>CSS3</li>
-          <li>HTML5</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Git</li>
-          <li>TypeScript</li>
-          <li>Next.js</li>
-          <li>Tailwind CSS</li>
           <li>Java</li>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>C#</li>
         </ul>
       </div>
       <div>
-        <p class="skill-heading">Beginner:</p>
+        <p class="skill-heading">Frontend:</p>
+        <ul>
+          <li>Tailwind CSS</li>
+          <li>React</li>
+          <li>Next.js</li>
+        </ul>
+      </div>
+      <div>
+        <p class="skill-heading">Backend:</p>
         <ul>
           <li>Node.js</li>
-          <li>Express</li>
+          <li>Express.js</li>
           <li>MySQL</li>
           <li>Redis</li>
-          <li>Docker</li>
-          <li>Postman</li>
-          <li>Figma</li>
-          <li>React Native</li>
-          <li>Linux</li>
         </ul>
       </div>
       <div>
-        <p class="skill-heading">Exploring:</p>
+        <p class="skill-heading">Data and AI:</p>
         <ul>
           <li>Pandas</li>
           <li>PyTorch</li>
           <li>Scikit-learn</li>
-          <li>Arduino</li>
-          <li>Photoshop</li>
+        </ul>
+      </div>
+      <div>
+        <p class="skill-heading">Other tools:</p>
+        <ul>
+          <li>Git</li>
+          <li>Docker</li>
+          <li>Linux</li>
         </ul>
       </div>
     </div>
@@ -91,9 +95,15 @@
 
   .skills-grid {
     margin-top: 0.5rem;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
+  }
+
+  .skills-grid > div {
+    flex: 1 1 100%;
+    min-width: 0;
   }
 
   .skill-heading {
@@ -108,14 +118,14 @@
   }
 
   @media (min-width: 640px) {
-    .skills-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .skills-grid > div {
+      flex: 0 1 12rem;
     }
   }
 
   @media (min-width: 1024px) {
-    .skills-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .skills-grid > div {
+      flex-basis: 12rem;
     }
   }
 </style>

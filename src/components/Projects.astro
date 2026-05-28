@@ -4,6 +4,7 @@ import PortfolioImg from "../img/portfolio.png";
 import VivaMQ from "../img/vivamq.png";
 import ImageConverter from "../img/image-converter.png";
 import OneVOne from "../img/1v1.png";
+import InstaFade from "../img/insta-fade.png";
 ---
 
 <div id="projects" class="projects">
@@ -44,11 +45,18 @@ import OneVOne from "../img/1v1.png";
       techUsedText={["React Native", "Tailwind", "FFmpeg"]}
       githubUrl="https://github.com/Fozzyishere/image-converter"
     />
+    <InfoCard
+      src={InstaFade}
+      alt="osu! insta-fade skin generator"
+      descText="A desktop app that generates insta-fade osu! skins with extra customization options."
+      techUsedText={["C#", ".NET", "Avalonia"]}
+      githubUrl="https://github.com/Fozzyishere/osu-insta-fade-skin-generator"
+    />
   </div>
   <h3 class="resume-note">
     Smaller projects can be found on my
     <a
-      href={`${import.meta.env.BASE_URL}/resume.pdf`}
+      href={`${import.meta.env.BASE_URL}/dev-resume-en.pdf`}
       target="_blank"
       rel="noopener noreferrer"
     >
